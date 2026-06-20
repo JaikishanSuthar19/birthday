@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 19th Birthday Ria 🎂</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- FLOATING DECORATIONS CONTAINER -->
+  <div id="ambient-decorations" class="ambient-decorations"></div>
+
+  <!-- 🎬 LOADING SCREEN -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="heart-spinner">🎂</div>
+      <h2 class="handwritten-title">Accessing friendship database...</h2>
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <div id="loading-status" class="loading-status">Finding cutest photos...</div>
+      <div id="loading-percent" class="loading-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- 🎟 SECRET EASTER EGG POPUP -->
+  <div id="easter-egg-modal" class="modal hidden">
+    <div class="modal-content glass-card coupon-card animate-pop">
+      <button class="close-btn" onclick="closeEasterEgg()">&times;</button>
+      <div class="coupon-header">🎉 ACHIEVEMENT UNLOCKED!</div>
+      <div class="coupon-title">SECRET RIA FILE FOUND</div>
+      <div class="coupon-ticket">
+        <div class="ticket-left">
+          <span class="coupon-icon">🎟</span>
+        </div>
+        <div class="ticket-right">
+          <h3>One Free Argument Coupon</h3>
+          <p>This ticket permits Ria to win one argument instantly.</p>
+          <span class="validity">VALID FOREVER</span>
+        </div>
+      </div>
+      <p class="coupon-hint">Screenshot this coupon to redeem it next time you are wrong (which is often). 😉</p>
+      <button class="btn btn-primary" onclick="closeEasterEgg()">Keep Secret</button>
+    </div>
+  </div>
+
+  <!-- 📸 LIGHTBOX GALLERY -->
+  <div id="gallery-lightbox" class="lightbox hidden" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content-wrapper" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="Zoomed Photo">
+      <div id="lightbox-caption" class="lightbox-caption">Loading...</div>
+    </div>
+  </div>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="app-container">
+
+    <!-- 🎉 BIRTHDAY HERO SECTION -->
+    <header class="hero-section glass-card">
+      <div class="sparkles-container"></div>
+      <div class="hero-header">
+        <span class="cute-tag birthday-tag">Case #19: The Curious Case of Ria</span>
+        <h1 class="hero-title handwritten-title">🎂 HAPPY 19TH BIRTHDAY RIA 🎂</h1>
+        <p class="hero-subtitle">"19 years of smiles, chaos, stories, selfies, laughter, and unforgettable memories."</p>
+      </div>
+      
+      <div class="typewriter-box">
+        <span id="hero-typing" class="typing-text"></span><span class="cursor">|</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#detection-system" class="btn btn-primary sound-btn">
+          <span>🎂 Begin Investigation</span>
+        </a>
+        <a href="#photobooth-archive" class="btn btn-secondary sound-btn">
+          <span>📸 Open Memory Archive</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- 🎤 THE YAPPER SOCIETY -->
+    <section id="yapper-society" class="section members-section">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">🎤 THE YAPPER SOCIETY</h2>
+        <p class="section-subtitle">"Three people. Infinite conversations. Zero chance of staying on topic."</p>
+      </div>
+
+      <div class="members-grid">
+        
+        <!-- Ria Card -->
+        <div class="member-card glass-card fact-special ria-card">
+          <div class="member-icon">👑</div>
+          <h3 class="member-name handwritten-title">RIA</h3>
+          <p class="member-role">The Founder</p>
+          <div class="member-ability">
+            The storyteller.<br>
+            The heart of the group.<br>
+            The reason most conversations become longer than expected.
+          </div>
+          <div class="member-skills">
+            <span class="skill-tag">🎤 Professional Yapper</span>
+            <span class="skill-tag">📸 Photobooth Queen</span>
+            <span class="skill-tag">✨ Main Character Energy</span>
+            <span class="skill-tag">😂 Laughs before finishing jokes</span>
+          </div>
+          <div class="yapping-level">
+            <span>Yapping Level:</span>
+            <div class="level-bar"><div class="fill overload" style="width: 100%;"></div></div>
+            <span class="level-text">1000%</span>
+          </div>
+          <div class="member-status birthday-status">
+            🎂 Birthday Girl
+          </div>
+        </div>
+
+        <!-- Sharuu Card -->
+        <div class="member-card glass-card">
+          <div class="member-icon">🌸</div>
+          <h3 class="member-name handwritten-title">SHARUU</h3>
+          <p class="member-role">The Intellect & Beauty</p>
+          <div class="member-ability">
+            The brains, elegance, and wisdom of the group.
+          </div>
+          <div class="member-skills">
+            <span class="skill-tag">🧠 Intelligence Expert</span>
+            <span class="skill-tag">🌸 Beauty Department Head</span>
+            <span class="skill-tag">❤️ Emotional Support Specialist</span>
+            <span class="skill-tag">✨ Voice of Reason</span>
+          </div>
+          <div class="yapping-level">
+            <span>Intelligence Level:</span>
+            <div class="level-bar"><div class="fill" style="width: 100%;"></div></div>
+            <span class="level-text">100%</span>
+          </div>
+          <div class="yapping-level">
+            <span>Beauty Level:</span>
+            <div class="level-bar"><div class="fill overload-pink" style="width: 100%;"></div></div>
+            <span class="level-text">∞</span>
+          </div>
+          <div class="member-status">
+            Official Intellect & Beauty Department
+          </div>
+        </div>
+
+        <!-- Jai Card -->
+        <div class="member-card glass-card">
+          <div class="member-icon">😎</div>
+          <h3 class="member-name handwritten-title">JAI</h3>
+          <p class="member-role">Head of Chaos Operations</p>
+          <div class="member-ability">
+            The overthinker.<br>
+            The random thought generator.<br>
+            The person who somehow connects completely unrelated topics together.
+          </div>
+          <div class="member-skills">
+            <span class="skill-tag">☕ Overthinking Expert</span>
+            <span class="skill-tag">🎭 Chaos Coordinator</span>
+            <span class="skill-tag">💡 Random Thought Generator</span>
+            <span class="skill-tag">😂 Certified Instigator</span>
+          </div>
+          <div class="yapping-level">
+            <span>Randomness Level:</span>
+            <div class="level-bar"><div class="fill" style="width: 100%;"></div></div>
+            <span class="level-text">100%</span>
+          </div>
+          <div class="member-status">
+            Official Chaos Department
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 📊 YAPPER SOCIETY REPORT -->
+    <section id="society-report" class="section stats-section glass-card">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">📊 Yapper Society Report</h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Messages Sent</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Too Many</span>
+          <span class="stat-label">Voice Notes</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Classified</span>
+          <span class="stat-label">Inside Jokes</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number text-pink">100%</span>
+          <span class="stat-label">Friendship Level</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number text-red">Still Counting</span>
+          <span class="stat-label">Shared Braincells</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Infinite</span>
+          <span class="stat-label">Memories Created</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📸 PHOTOBOOTH MEMORY ARCHIVE -->
+    <section id="photobooth-archive" class="section memory-archive">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">📸 Photobooth Memory Archive</h2>
+        <p class="section-subtitle">Classified evidence collected from various photobooth operations.</p>
+      </div>
+
+      <div class="scrapbook-container">
+        <!-- Sticker overlay effects -->
+        <div class="sticker sticker-heart" style="top: -20px; left: 5%; transform: rotate(-15deg);">💖</div>
+        <div class="sticker sticker-star" style="top: 15%; right: 5%; transform: rotate(10deg);">🎂</div>
+        <div class="sticker sticker-smile" style="bottom: -10px; left: 10%; transform: rotate(-5deg);">🌸</div>
+        <div class="sticker sticker-star" style="bottom: 2%; right: 12%; transform: rotate(20deg);">🎁</div>
+
+        <div class="scrapbook-grid">
+          <!-- Photo Card 1 -->
+          <div class="polaroid-card sound-btn" onclick="openLightbox(this)" data-src="photostrip.png">
+            <div class="tape tape-top-left"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="photostrip.png" alt="Ria Photostrip 1">
+            </div>
+            <div class="polaroid-caption handwritten-title">Evidence Exhibit A</div>
+          </div>
+
+          <!-- Photo Card 2 -->
+          <div class="polaroid-card sound-btn" onclick="openLightbox(this)" data-src="photostrip (1).png" style="transform: rotate(3deg) translateY(10px);">
+            <div class="tape tape-top-right"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="photostrip (1).png" alt="Ria Photostrip 2">
+            </div>
+            <div class="polaroid-caption handwritten-title">Rare footage of Ria behaving</div>
+          </div>
+
+          <!-- Photo Card 3 -->
+          <div class="polaroid-card sound-btn" onclick="openLightbox(this)" data-src="photostrip (1) 8.09.02 PM.png" style="transform: rotate(-4deg) translateY(-5px);">
+            <div class="tape tape-top-left"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="photostrip (1) 8.09.02 PM.png" alt="Ria Photostrip 3">
+            </div>
+            <div class="polaroid-caption handwritten-title">Main character detected</div>
+          </div>
+
+          <!-- Photo Card 4 -->
+          <div class="polaroid-card sound-btn" onclick="openLightbox(this)" data-src="photostrip 8.09.02 PM.png" style="transform: rotate(2deg) translateY(5px);">
+            <div class="tape tape-top-right"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="photostrip 8.09.02 PM.png" alt="Ria Photostrip 4">
+            </div>
+            <div class="polaroid-caption handwritten-title">Smile level critical</div>
+          </div>
+
+          <!-- Photo Card 5 -->
+          <div class="polaroid-card sound-btn" onclick="openLightbox(this)" data-src="photostrip (3).png" style="transform: rotate(-2deg) translateY(8px);">
+            <div class="tape tape-top-left"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="photostrip (3).png" alt="Ria Photostrip 5">
+            </div>
+            <div class="polaroid-caption handwritten-title">Certified cutie</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔬 RIA DETECTION SYSTEM -->
+    <section id="detection-system" class="section detection-system glass-card">
+      <div class="section-header">
+        <span class="pulse-dot"></span>
+        <h2 class="section-title">RIA DETECTION SYSTEM</h2>
+        <p class="section-subtitle">Our advanced friendship laboratory has completed the analysis.</p>
+      </div>
+
+      <div class="scanner-container">
+        <div class="scanner-screen">
+          <div class="scanner-laser"></div>
+          <div id="scanner-output" class="scanner-output">
+            <div class="scanner-idle">
+              <div class="scanner-icon">🔬</div>
+              <p>System Online. Awaiting target initialization...</p>
+            </div>
+          </div>
+        </div>
+
+        <button id="scan-button" class="btn btn-primary scan-btn sound-btn" onclick="runScanner()">
+          <span class="btn-scan-text">ANALYZE RIA.EXE</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 📂 OFFICIAL RIA FACTS DATABASE -->
+    <section id="facts-database" class="section facts-database">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">📂 Official Ria Facts Database</h2>
+        <p class="section-subtitle">Declassified facts & intelligence dossiers on target's behavior.</p>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #001</div>
+          <p class="fact-text">Ria has never taken "just one photo."</p>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #002</div>
+          <div class="translation-box">
+            <span class="says-label">Says:</span>
+            <p class="says-text">"I'm fine."</p>
+            <span class="trans-label">Translation:</span>
+            <p class="trans-text">"I am absolutely not fine."</p>
+          </div>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #003</div>
+          <p class="fact-text">Can laugh for 10 minutes without explaining the joke.</p>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #004</div>
+          <div class="translation-box">
+            <span class="says-label">Will say:</span>
+            <p class="says-text">"I'm not hungry."</p>
+            <span class="trans-label">Reality:</span>
+            <p class="trans-text">Then steal half your food.</p>
+          </div>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #005</div>
+          <p class="fact-text">Takes 50 photos. Chooses the first one.</p>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #006</div>
+          <p class="fact-text">Claims innocence. Evidence suggests otherwise.</p>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #007</div>
+          <p class="fact-text">Can turn a 2-minute story into a 30-minute adventure.</p>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #008</div>
+          <p class="fact-text">Has somehow mastered looking good in every photobooth strip.</p>
+        </div>
+
+        <div class="fact-card glass-card">
+          <div class="fact-tag">Fact #009</div>
+          <p class="fact-text">Can annoy people and make them laugh simultaneously.</p>
+        </div>
+
+        <div class="fact-card glass-card fact-special">
+          <div class="fact-tag">Fact #010</div>
+          <p class="fact-text">Actually one of the best humans ever discovered. ❤️</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⚖️ RIA VS REALITY -->
+    <section id="ria-vs-reality" class="section ria-vs-reality">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">⚖️ Ria vs Reality</h2>
+        <p class="section-subtitle">Click cards to flip and expose the ultimate truths.</p>
+      </div>
+
+      <div class="reality-deck">
+        <div class="flip-card sound-btn" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-card">
+              <h3>Card 1</h3>
+              <p class="quote">Ria Says:<br>"I'm coming in 5 minutes."</p>
+              <span class="click-hint">Click to flip 🔄</span>
+            </div>
+            <div class="flip-card-back glass-card">
+              <h3>Reality:</h3>
+              <p class="reality-text">See you in half an hour. ⏰</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card sound-btn" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-card">
+              <h3>Card 2</h3>
+              <p class="quote">Ria Says:<br>"One last photo."</p>
+              <span class="click-hint">Click to flip 🔄</span>
+            </div>
+            <div class="flip-card-back glass-card">
+              <h3>Reality:</h3>
+              <p class="reality-text">47 additional photos. 📸</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card sound-btn" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-card">
+              <h3>Card 3</h3>
+              <p class="quote">Ria Says:<br>"I'm not hungry."</p>
+              <span class="click-hint">Click to flip 🔄</span>
+            </div>
+            <div class="flip-card-back glass-card">
+              <h3>Reality:</h3>
+              <p class="reality-text">Your fries are now hers. 🍟</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card sound-btn" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-card">
+              <h3>Card 4</h3>
+              <p class="quote">Ria Says:<br>"I don't care."</p>
+              <span class="click-hint">Click to flip 🔄</span>
+            </div>
+            <div class="flip-card-back glass-card">
+              <h3>Reality:</h3>
+              <p class="reality-text">Cares the most. ❤️</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card sound-btn" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-card">
+              <h3>Card 5</h3>
+              <p class="quote">Ria Says:<br>"I'm not dramatic."</p>
+              <span class="click-hint">Click to flip 🔄</span>
+            </div>
+            <div class="flip-card-back glass-card">
+              <h3>Reality:</h3>
+              <p class="reality-text">Friendship Committee disagrees. 🧑‍⚖️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🏆 ACHIEVEMENTS UNLOCKED -->
+    <section id="achievements" class="section achievements">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">🏆 Achievements Unlocked</h2>
+      </div>
+
+      <div class="achievements-grid">
+        <div class="achievement-card glass-card">
+          <div class="badge-icon">🗣️</div>
+          <h3>Certified Yapper</h3>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="badge-icon">🍟</div>
+          <h3>Food Inspector</h3>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="badge-icon">🤳</div>
+          <h3>Selfie Specialist</h3>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="badge-icon">🌀</div>
+          <h3>Chaos Coordinator</h3>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="badge-icon">🤪</div>
+          <h3>Professional Goofball</h3>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="badge-icon">⚡</div>
+          <h3>Mood Swing Speedrunner</h3>
+        </div>
+        <div class="achievement-card glass-card fact-special">
+          <div class="badge-icon">👑</div>
+          <h3>Best Friend Premium Edition</h3>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="badge-icon">🌟</div>
+          <h3>Main Character Energy</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🎮 RIA OR AI QUIZ -->
+    <section id="ria-or-ai" class="section ria-or-ai glass-card">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">🎮 Ria or AI?</h2>
+      </div>
+
+      <div class="quiz-container">
+        <!-- Question 1 -->
+        <div class="quiz-item" data-q="1">
+          <p class="quiz-question">Who takes 50 photos to choose one?</p>
+          <div class="quiz-options">
+            <button class="btn btn-quiz sound-btn" onclick="answerQuiz(1, 'ai')">AI</button>
+            <button class="btn btn-quiz sound-btn" onclick="answerQuiz(1, 'ria')">RIA ✅</button>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-item" data-q="2">
+          <p class="quiz-question">Who says "I'm not hungry" then steals food?</p>
+          <div class="quiz-options">
+            <button class="btn btn-quiz sound-btn" onclick="answerQuiz(2, 'ai')">AI</button>
+            <button class="btn btn-quiz sound-btn" onclick="answerQuiz(2, 'ria')">RIA ✅</button>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-item" data-q="3">
+          <p class="quiz-question">Who starts laughing before telling the joke?</p>
+          <div class="quiz-options">
+            <button class="btn btn-quiz sound-btn" onclick="answerQuiz(3, 'ai')">AI</button>
+            <button class="btn btn-quiz sound-btn" onclick="answerQuiz(3, 'ria')">RIA ✅</button>
+          </div>
+        </div>
+
+        <div id="quiz-result" class="quiz-result-box hidden">
+          <h3>🎉 Congratulations!</h3>
+          <p>You know Ria suspiciously well.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🚨 EMERGENCY BUTTON -->
+    <section id="emergency" class="section emergency glass-card">
+      <div class="emergency-wrapper">
+        <h2 class="section-title handwritten-title text-red">🚨 EMERGENCY BUTTON 🚨</h2>
+        <p class="section-subtitle">Do not touch under any circumstances. Extremely dangerous.</p>
+        
+        <div class="emergency-btn-container">
+          <button id="emergency-btn" class="emergency-btn sound-btn" onclick="triggerEmergencyMode()">
+            <span>DO NOT PRESS</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📸 MEGA GALLERY -->
+    <section id="mega-gallery" class="section mega-gallery-section">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">📸 Full Memory Archive</h2>
+        <p class="section-subtitle">Every single photo documented.</p>
+      </div>
+
+      <div class="mega-gallery-grid">
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="Screenshot 2026-06-21 at 1.14.49 AM.png"><img src="Screenshot 2026-06-21 at 1.14.49 AM.png" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="Screenshot 2026-06-21 at 1.14.55 AM.png"><img src="Screenshot 2026-06-21 at 1.14.55 AM.png" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="Screenshot 2026-06-21 at 1.15.01 AM.png"><img src="Screenshot 2026-06-21 at 1.15.01 AM.png" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="Screenshot 2026-06-21 at 1.15.10 AM.png"><img src="Screenshot 2026-06-21 at 1.15.10 AM.png" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="Screenshot 2026-06-21 at 1.15.17 AM.png"><img src="Screenshot 2026-06-21 at 1.15.17 AM.png" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="Screenshot 2026-06-21 at 1.15.23 AM.png"><img src="Screenshot 2026-06-21 at 1.15.23 AM.png" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="Screenshot 2026-06-21 at 1.15.32 AM.png"><img src="Screenshot 2026-06-21 at 1.15.32 AM.png" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.11.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.11.jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.13.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.13.jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.14.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.14.jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.15.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.15.jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.16 (1).jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.16 (1).jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.16.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.16.jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.17 (1).jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.17 (1).jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.17 (2).jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.17 (2).jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.17.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.17.jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.18.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.18.jpeg" alt="Memory"></div>
+        <div class="gallery-item sound-btn" onclick="openLightbox(this)" data-src="WhatsApp Image 2026-06-21 at 00.53.19.jpeg"><img src="WhatsApp Image 2026-06-21 at 00.53.19.jpeg" alt="Memory"></div>
+      </div>
+    </section>
+
+    <!-- 🎁 SECRET EASTER EGG TRIGGER -->
+    <div class="easter-egg-trigger-container">
+      <button class="easter-egg-heart sound-btn" onclick="openEasterEgg()" title="Clue: Click for a secret">❤️</button>
+    </div>
+
+    <!-- 🎵 THE SOUNDTRACK OF OUR FRIENDSHIP -->
+    <section id="soundtrack" class="section soundtrack-section glass-card">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">🎵 The Soundtrack of Our Friendship</h2>
+        <p class="section-subtitle">Some memories live in songs.</p>
+      </div>
+
+      <div class="playlist-container">
+        <!-- Song 1 -->
+        <div class="song-card glass-card sound-btn" onclick="toggleAudio(this)" data-src="13)Bruno Mars - Count on Me 3.17.mp3">
+          <div class="song-icon">▶️</div>
+          <div class="song-info">
+            <h3 class="song-title">Count on Me — Bruno Mars</h3>
+            <p class="song-desc">Because no matter how chaotic life gets, some people will always be there when you need them.</p>
+          </div>
+        </div>
+
+        <!-- Song 2 -->
+        <div class="song-card glass-card sound-btn" onclick="toggleAudio(this)" data-src="Coldplay - Yellow (Lyrics).mp3">
+          <div class="song-icon">▶️</div>
+          <div class="song-info">
+            <h3 class="song-title">Yellow — Coldplay</h3>
+            <p class="song-desc">Look at the stars, look how they shine for you. A reminder that you bring light to the darkest days.</p>
+          </div>
+        </div>
+
+        <!-- Song 3 -->
+        <div class="song-card glass-card sound-btn" onclick="toggleAudio(this)" data-src="Ed Sheeran - Photograph (Lyrics) (1).mp3">
+          <div class="song-icon">▶️</div>
+          <div class="song-info">
+            <h3 class="song-title">Photograph — Ed Sheeran</h3>
+            <p class="song-desc">For the memories we keep in these pictures. Loving can hurt sometimes, but it's the only thing that makes us feel alive.</p>
+          </div>
+        </div>
+
+        <!-- Song 4 -->
+        <div class="song-card glass-card sound-btn" onclick="toggleAudio(this)" data-src="Saturn -  SZA.mp3">
+          <div class="song-icon">▶️</div>
+          <div class="song-info">
+            <h3 class="song-title">Saturn — SZA</h3>
+            <p class="song-desc">When everything feels like a mess and you just want to escape. A song for those deep, late-night conversations.</p>
+          </div>
+        </div>
+
+        <!-- Song 5 -->
+        <div class="song-card glass-card sound-btn" onclick="toggleAudio(this)" data-src="Stephen Sanchez - Until I Found You (Official Video).mp3">
+          <div class="song-icon">▶️</div>
+          <div class="song-info">
+            <h3 class="song-title">Until I Found You — Stephen Sanchez</h3>
+            <p class="song-desc">Some people come into your life and suddenly everything makes sense. The perfect soundtrack for an unforgettable friendship.</p>
+          </div>
+        </div>
+
+        <!-- Song 6 -->
+        <div class="song-card glass-card sound-btn" onclick="toggleAudio(this)" data-src="Those Eyes-New West.mp3">
+          <div class="song-icon">▶️</div>
+          <div class="song-info">
+            <h3 class="song-title">Those Eyes — New West</h3>
+            <p class="song-desc">Because all it takes is a look to know exactly what the other person is thinking. Friendship telepathy at its finest.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 💌 FINAL VERDICT / STATEMENT -->
+    <section class="section verdict-section glass-card fact-special">
+      <div class="section-header">
+        <h2 class="section-title handwritten-title">❤️ FINAL VERDICT</h2>
+      </div>
+      <div class="verdict-content">
+        <p>Three completely different personalities.</p>
+        <p>One unforgettable friendship.</p>
+        <p>A Founder. An Intellect & Beauty. A Chaos Department.</p>
+        <p>Together they form...</p>
+        <h3 class="handwritten-title highlight-text">🎤 THE YAPPER SOCIETY 🎤</h3>
+        <p class="status-badge">Official Status: Best Trio Ever Detected ❤️</p>
+      </div>
+    </section>
+
+    <!-- 💌 FINAL BIRTHDAY LETTER -->
+    <section id="final-letter" class="section final-letter-section">
+      <div class="paper-letter birthday-letter">
+        <div class="letter-stamp">🎂</div>
+        <h2 class="handwritten-title text-center">Dear Ria,</h2>
+        
+        <div id="typewriter-letter" class="letter-body">
+          <!-- Text inserted via JS -->
+        </div>
+
+        <div class="letter-footer">
+          <p class="handwritten-title">— Jai ❤️</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="final-verdict-screen" id="final-verdict-screen">
+      <h2 class="handwritten-title">🎂 HAPPY 19TH BIRTHDAY RIA 🎂</h2>
+      <p>Official Birthday Investigation Completed.</p>
+      <div class="verdict-box">
+        <h3>Verdict:</h3>
+        <p>Too precious to prosecute.</p>
+        <p>Case Closed. 💖</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 🌸 FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-badges">
+      <span>📸 Photobooth Memories</span>
+      <span>😂 Chaos</span>
+      <span>☕ Late Night Conversations</span>
+      <span>❤️ Friendship</span>
+    </div>
+    <p class="footer-certified">"Officially approved by the Ministry of Best Friends."</p>
+    <p class="footer-gesture">With love, Jai & Sharuu 💖</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+/* ==========================================
+   CSS RESET & VARIABLES
+   ========================================== */
+:root {
+  --hot-pink: #FF4D8D;
+  --baby-pink: #FFD6E7;
+  --white: #FFFFFF;
+  --lavender: #E9D5FF;
+  --rose-gold: #B76E79;
+  --gold: #FFD700;
+  --dark-text: #2C1820;
+  --light-bg: #FFF5F8;
+  --shadow-color: rgba(255, 77, 141, 0.15);
+  
+  --font-headings: 'Fredoka', sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+body { font-family: var(--font-body); background-color: var(--light-bg); color: var(--dark-text); overflow-x: hidden; line-height: 1.6; }
+
+/* ==========================================
+   DECORATIONS & LOADING
+   ========================================== */
+.ambient-decorations { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
+.floating-heart { position: absolute; color: var(--hot-pink); opacity: 0.8; pointer-events: none; animation: floatUp 6s linear infinite; }
+@keyframes floatUp { 0% { transform: translateY(105vh) translateX(0) scale(0.5) rotate(0deg); opacity: 0; } 10% { opacity: 0.9; } 90% { opacity: 0.9; } 100% { transform: translateY(-10vh) translateX(var(--drift, 50px)) scale(1.2) rotate(var(--rotation, 360deg)); opacity: 0; } }
+
+.loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--baby-pink); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s; }
+.loading-screen.fade-out { opacity: 0; visibility: hidden; }
+.loading-content { text-align: center; padding: 2rem; max-width: 400px; width: 90%; }
+.heart-spinner { font-size: 4rem; display: inline-block; animation: heartbeat 1.2s infinite ease-in-out; margin-bottom: 1rem; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.15); } 40% { transform: scale(1.05); } 60% { transform: scale(1.2); } }
+.loading-content h2 { font-size: 2.2rem; color: var(--hot-pink); margin-bottom: 1.5rem; }
+.progress-container { width: 100%; height: 12px; background-color: var(--white); border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
+.progress-bar { height: 100%; width: 0%; background-color: var(--hot-pink); border-radius: 6px; transition: width 0.1s linear; }
+.loading-status { font-size: 1rem; font-weight: 500; color: var(--rose-gold); min-height: 24px; }
+.loading-percent { font-size: 1.2rem; font-weight: 700; color: var(--hot-pink); margin-top: 0.5rem; }
+
+/* ==========================================
+   UTILITY & BUTTONS
+   ========================================== */
+.glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 20px; box-shadow: 0 10px 30px var(--shadow-color); transition: all 0.3s ease; }
+.glass-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(255, 77, 141, 0.25); }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.8rem; font-family: var(--font-headings); font-size: 1.1rem; font-weight: 600; border-radius: 50px; border: none; cursor: pointer; transition: all 0.2s ease; text-decoration: none; box-shadow: 0 4px 15px rgba(255, 77, 141, 0.3); }
+.btn-primary { background-color: var(--hot-pink); color: var(--white); }
+.btn-primary:hover { background-color: #e03b77; transform: scale(1.05); }
+.btn-secondary { background-color: var(--white); color: var(--hot-pink); border: 2px solid var(--baby-pink); }
+.btn-secondary:hover { background-color: var(--baby-pink); transform: scale(1.05); }
+
+.app-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; position: relative; z-index: 2; }
+.section { margin-top: 4rem; margin-bottom: 4rem; padding: 2rem; }
+.section-header { text-align: center; margin-bottom: 2.5rem; }
+.section-title { font-family: var(--font-headings); font-size: 2.5rem; color: var(--hot-pink); margin-bottom: 0.5rem; }
+.section-subtitle { font-size: 1.1rem; color: var(--rose-gold); }
+.handwritten-title { font-family: var(--font-handwritten); }
+.fact-special { background: linear-gradient(135deg, rgba(255, 77, 141, 0.1) 0%, rgba(233, 213, 255, 0.2) 100%); border-color: var(--hot-pink); }
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero-section { text-align: center; padding: 4rem 2rem; margin-bottom: 3rem; position: relative; overflow: hidden; border: 2px solid var(--baby-pink); }
+.cute-tag { background-color: var(--baby-pink); color: var(--hot-pink); font-size: 0.85rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 50px; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem; }
+.birthday-tag { background-color: var(--gold); color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+.hero-title { font-size: 4rem; color: var(--hot-pink); margin-bottom: 0.5rem; text-shadow: 2px 2px 0 var(--white), 4px 4px 0 var(--baby-pink); }
+.hero-subtitle { font-size: 1.4rem; font-style: italic; color: var(--rose-gold); margin-bottom: 1.5rem; font-weight: 500; }
+.typewriter-box { min-height: 48px; margin-bottom: 2rem; font-size: 1.2rem; font-weight: 500; padding: 0 1rem; }
+.cursor { color: var(--hot-pink); animation: blink 0.8s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* ==========================================
+   👑 THE YAPPER SOCIETY
+   ========================================== */
+.members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.member-card { padding: 2.5rem 1.5rem; text-align: center; position: relative; display: flex; flex-direction: column; align-items: center; }
+.member-icon { font-size: 3.5rem; margin-bottom: 1rem; animation: floatSticker 3s ease-in-out infinite alternate; }
+.member-name { font-size: 2.5rem; color: var(--hot-pink); margin-bottom: 0.2rem; }
+.member-role { font-weight: 700; color: var(--rose-gold); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+.member-ability { font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--dark-text); background: rgba(255, 255, 255, 0.5); padding: 1rem; border-radius: 10px; border: 1px dashed var(--baby-pink); }
+.member-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem; }
+.skill-tag { font-size: 0.75rem; background: var(--white); border: 1px solid var(--baby-pink); padding: 0.3rem 0.6rem; border-radius: 20px; color: var(--hot-pink); font-weight: 600; }
+.yapping-level { width: 100%; margin-bottom: 1rem; text-align: left; font-size: 0.9rem; font-weight: 700; color: var(--hot-pink); }
+.level-bar { width: 100%; height: 12px; background: #eee; border-radius: 10px; margin-top: 0.4rem; overflow: hidden; }
+.level-bar .fill { height: 100%; background: linear-gradient(90deg, var(--hot-pink), #ff75a8); border-radius: 10px; }
+.level-bar .fill.overload { background: linear-gradient(90deg, #ff75a8, #ff3b3b, #ff75a8); background-size: 200% 100%; animation: overloadShimmer 1.5s linear infinite; }
+.level-bar .fill.overload-pink { background: linear-gradient(90deg, var(--lavender), var(--hot-pink), var(--lavender)); background-size: 200% 100%; animation: overloadShimmer 1.5s linear infinite; }
+@keyframes overloadShimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+.level-text { float: right; margin-top: -22px; }
+.member-status { font-size: 0.85rem; font-style: italic; color: var(--rose-gold); border-top: 1px solid var(--baby-pink); padding-top: 1rem; width: 100%; margin-top: auto; }
+.birthday-status { color: var(--hot-pink); font-weight: 700; font-size: 1.1rem; }
+
+/* ==========================================
+   📊 REPORT STATS
+   ========================================== */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; text-align: center; }
+.stat-item { display: flex; flex-direction: column; padding: 1.5rem; }
+.stat-number { font-family: var(--font-headings); font-size: 2.2rem; color: var(--hot-pink); margin-bottom: 0.5rem; }
+.stat-label { font-size: 0.9rem; font-weight: 700; color: var(--rose-gold); text-transform: uppercase; }
+.text-pink { color: var(--hot-pink) !important; }
+.text-red { color: #dc3545 !important; }
+
+/* ==========================================
+   📸 SCRAPBOOK PHOTOBOOTH
+   ========================================== */
+.scrapbook-container { position: relative; background-color: var(--white); padding: 3rem 1.5rem; border-radius: 30px; border: 1px dashed var(--hot-pink); }
+.sticker { position: absolute; font-size: 2rem; pointer-events: none; z-index: 10; animation: floatSticker 4s ease-in-out infinite alternate; }
+@keyframes floatSticker { 0% { transform: translateY(0) rotate(-10deg); } 100% { transform: translateY(-5px) rotate(10deg); } }
+.scrapbook-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem; justify-items: center; }
+.polaroid-card { background: var(--white); padding: 1rem; padding-bottom: 2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 280px; width: 100%; cursor: pointer; position: relative; transition: all 0.4s ease; }
+.polaroid-card:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 20; box-shadow: 0 20px 35px rgba(255, 77, 141, 0.25); }
+.polaroid-img-wrapper { width: 100%; height: 320px; overflow: hidden; background-color: #eee; margin-bottom: 1rem; }
+.polaroid-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.polaroid-card:hover .polaroid-img-wrapper img { transform: scale(1.08); }
+.polaroid-caption { text-align: center; font-size: 1.5rem; color: var(--hot-pink); }
+.tape { position: absolute; width: 90px; height: 25px; background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(2px); border-left: 3px dashed rgba(255, 77, 141, 0.2); border-right: 3px dashed rgba(255, 77, 141, 0.2); }
+.tape-top-left { top: -12px; left: -15px; transform: rotate(-30deg); }
+.tape-top-right { top: -12px; right: -15px; transform: rotate(30deg); }
+
+/* ==========================================
+   🔬 RIA DETECTION SCANNER
+   ========================================== */
+.scanner-container { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.scanner-screen { position: relative; width: 100%; max-width: 500px; height: 250px; background-color: #1a0a10; border-radius: 15px; border: 3px solid var(--hot-pink); overflow: hidden; box-shadow: inset 0 0 20px rgba(255, 77, 141, 0.4); }
+.scanner-laser { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background-color: var(--hot-pink); box-shadow: 0 0 15px var(--hot-pink), 0 0 5px #fff; z-index: 5; display: none; }
+.scanner-laser.scanning { display: block; animation: scanLaser 2s linear infinite; }
+@keyframes scanLaser { 0%, 100% { top: 0%; } 50% { top: 100%; } }
+.scanner-output { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; padding: 1.5rem; }
+.scanner-idle { text-align: center; color: var(--baby-pink); opacity: 0.8; }
+.scanner-icon { font-size: 3rem; margin-bottom: 0.5rem; animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.scan-log-item { color: var(--lavender); font-family: monospace; font-size: 0.95rem; margin-bottom: 0.4rem; text-align: left; }
+.scan-result-card { text-align: center; animation: resultReveal 0.5s ease forwards; }
+.scan-result-card h3 { color: var(--hot-pink); font-size: 1.8rem; margin-bottom: 0.5rem; }
+.scan-result-card p { color: var(--white); }
+@keyframes resultReveal { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* ==========================================
+   📂 FACTS DATABASE
+   ========================================== */
+.facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.fact-card { padding: 2rem; border-left: 4px solid var(--hot-pink); position: relative; overflow: hidden; }
+.fact-tag { font-family: monospace; font-weight: 700; color: var(--hot-pink); background-color: var(--baby-pink); padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; margin-bottom: 1rem; }
+.fact-text { font-size: 1.1rem; font-weight: 500; }
+.says-label, .trans-label { font-size: 0.8rem; font-weight: 700; color: var(--rose-gold); text-transform: uppercase; }
+.says-text { font-size: 1.1rem; font-weight: 600; font-style: italic; }
+.trans-text { font-size: 1.1rem; font-weight: 600; color: var(--hot-pink); }
+
+/* ==========================================
+   ⚖️ RIA VS REALITY
+   ========================================== */
+.reality-deck { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; perspective: 1000px; }
+.flip-card { height: 200px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s ease; transform-style: preserve-3d; }
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1.5rem; }
+.flip-card-front h3, .flip-card-back h3 { font-size: 1.1rem; text-transform: uppercase; color: var(--rose-gold); margin-bottom: 0.8rem; }
+.flip-card-front .quote { font-size: 1.3rem; font-weight: 700; }
+.click-hint { font-size: 0.8rem; color: var(--hot-pink); margin-top: 1rem; }
+.flip-card-back { transform: rotateY(180deg); background: var(--baby-pink); border-color: var(--hot-pink); }
+.reality-text { font-size: 1.3rem; font-weight: 700; color: var(--hot-pink); }
+
+/* ==========================================
+   🏆 ACHIEVEMENTS UNLOCKED
+   ========================================== */
+.achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+.achievement-card { text-align: center; padding: 2rem 1rem; }
+.badge-icon { font-size: 3rem; margin-bottom: 1rem; }
+.achievement-card h3 { font-family: var(--font-headings); font-size: 1.2rem; }
+
+/* ==========================================
+   🎮 RIA OR AI QUIZ
+   ========================================== */
+.quiz-container { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; }
+.quiz-item { border-bottom: 1px dashed var(--baby-pink); padding-bottom: 1.5rem; }
+.quiz-item:last-child { border-bottom: none; }
+.quiz-question { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
+.quiz-options { display: flex; gap: 1rem; }
+.btn-quiz { flex: 1; background-color: var(--white); border: 2px solid var(--baby-pink); color: var(--dark-text); }
+.btn-quiz.correct { background-color: #D4EDDA; border-color: #C3E6CB; color: #155724; }
+.btn-quiz.incorrect { background-color: #F8D7DA; border-color: #F5C6CB; color: #721C24; opacity: 0.6; }
+.quiz-result-box { text-align: center; background-color: #D4EDDA; border: 2px solid #C3E6CB; color: #155724; padding: 1.5rem; border-radius: 15px; }
+
+/* ==========================================
+   🚨 EMERGENCY BUTTON
+   ========================================== */
+.emergency-wrapper { text-align: center; }
+.emergency-btn-container { display: flex; justify-content: center; margin-top: 2rem; }
+.emergency-btn { width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, #ff4d4d 0%, #cc0000 100%); border: 8px solid #f2f2f2; box-shadow: 0 10px 25px rgba(204, 0, 0, 0.4); color: var(--white); font-family: var(--font-headings); font-size: 1.3rem; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.1s ease; }
+.emergency-btn:active { transform: scale(0.9); }
+body.emergency-flash { animation: emergencyAlert 0.4s infinite alternate; }
+@keyframes emergencyAlert { 0% { background-color: var(--light-bg); } 100% { background-color: #ffcccc; } }
+body.screen-shake { animation: screenShake 0.1s infinite; }
+@keyframes screenShake { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 25% { transform: translate(2px, 3px) rotate(-0.5deg); } 50% { transform: translate(-3px, -1px) rotate(0.5deg); } 75% { transform: translate(1px, -2px) rotate(-0.5deg); } }
+.emergency-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border: 10px solid #dc3545; box-sizing: border-box; z-index: 999999; animation: borderBlink 0.5s infinite; }
+@keyframes borderBlink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+.emergency-message-popup { position: fixed; padding: 1rem 2rem; background: #dc3545; color: white; font-family: var(--font-headings); font-size: 1.5rem; border-radius: 50px; z-index: 1000000; pointer-events: none; animation: flyPopup 1.5s ease forwards; }
+@keyframes flyPopup { 0% { transform: scale(0.5); opacity: 0; top: 50%; left: 50%; } 20% { transform: scale(1.2) rotate(var(--popup-rotate, 10deg)); opacity: 1;} 80% { opacity: 1;} 100% { transform: scale(0.8) translateY(-150px); opacity: 0; top: 40%; left: 50%; } }
+
+/* ==========================================
+   📸 MEGA GALLERY
+   ========================================== */
+.mega-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; padding: 1rem; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; aspect-ratio: 1 / 1; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; border: 3px solid var(--white); }
+.gallery-item:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255, 77, 141, 0.4); z-index: 10; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-item:hover img { transform: scale(1.1); }
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 24, 32, 0.95); z-index: 99999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.lightbox.visible { opacity: 1; visibility: visible; }
+.lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 3rem; color: var(--white); cursor: pointer; }
+.lightbox-content-wrapper { max-width: 90%; max-height: 85%; text-align: center; }
+.lightbox-content-wrapper img { max-height: 70vh; max-width: 100%; border-radius: 8px; border: 5px solid var(--white); }
+.lightbox-caption { margin-top: 1.5rem; font-family: var(--font-handwritten); font-size: 2.2rem; color: var(--baby-pink); }
+
+/* ==========================================
+   💌 VERDICT & FINAL LETTER
+   ========================================== */
+.verdict-section { text-align: center; padding: 4rem 2rem; border-width: 3px; }
+.verdict-content p { font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 500; }
+.highlight-text { font-size: 3rem; color: var(--hot-pink); margin: 1.5rem 0; }
+.status-badge { display: inline-block; background: var(--baby-pink); color: var(--hot-pink); font-weight: 700; padding: 0.5rem 1.5rem; border-radius: 50px; margin-top: 1rem; }
+
+.final-letter-section { display: flex; justify-content: center; margin-top: 2rem; }
+.birthday-letter { background: #FFFDFC; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 650px; padding: 3rem 2.5rem; position: relative; line-height: 1.8; border: 1px solid #EBE7E0; }
+.letter-stamp { position: absolute; top: 20px; right: 25px; font-size: 2.5rem; filter: rotate(10deg); }
+.letter-body { margin-top: 2rem; font-family: var(--font-body); font-size: 1.1rem; color: #4A3E3D; min-height: 150px; }
+.letter-footer { margin-top: 3rem; text-align: right; font-size: 1.8rem; color: var(--hot-pink); }
+
+/* Final Verdict Screen Animation */
+.final-verdict-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 245, 248, 0.95); backdrop-filter: blur(10px); z-index: 100000; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 1s ease; text-align: center; padding: 2rem; }
+.final-verdict-screen.visible { opacity: 1; visibility: visible; }
+.final-verdict-screen h2 { font-size: 4rem; color: var(--hot-pink); margin-bottom: 1rem; }
+.verdict-box { margin-top: 2rem; padding: 2rem; border: 3px dashed var(--hot-pink); border-radius: 20px; background: white; transform: scale(0.8); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.final-verdict-screen.visible .verdict-box { transform: scale(1); }
+.verdict-box h3 { font-size: 1.5rem; color: var(--rose-gold); text-transform: uppercase; margin-bottom: 1rem; }
+.verdict-box p { font-size: 2rem; font-weight: 700; color: var(--hot-pink); margin-bottom: 0.5rem; }
+
+/* ==========================================
+   🎁 SECRET EASTER EGG & COUPON
+   ========================================== */
+.easter-egg-trigger-container { display: flex; justify-content: center; margin-top: 3rem; }
+.easter-egg-heart { background: transparent; border: none; font-size: 1.1rem; cursor: pointer; opacity: 0.15; transition: opacity 0.3s, transform 0.2s; padding: 10px; }
+.easter-egg-heart:hover { opacity: 1; transform: scale(1.3); }
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 100000; display: flex; justify-content: center; align-items: center; }
+.modal.hidden { display: none; }
+.modal-content { position: relative; width: 90%; max-width: 500px; padding: 2.5rem 2rem; text-align: center; }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; background: transparent; border: none; cursor: pointer; color: var(--rose-gold); }
+.coupon-card { border: 2px solid var(--hot-pink); background: linear-gradient(135deg, #FFF0F5 0%, #FFFFFF 100%); }
+.coupon-title { font-family: var(--font-headings); font-size: 1.8rem; color: var(--dark-text); margin-bottom: 1.5rem; }
+.coupon-ticket { display: flex; background: var(--white); border: 2px dashed var(--hot-pink); border-radius: 12px; margin-bottom: 1.5rem; }
+.ticket-left { background: var(--hot-pink); padding: 1.5rem; display: flex; align-items: center; font-size: 2.5rem; }
+.ticket-right { padding: 1.2rem; text-align: left; }
+.validity { font-size: 0.75rem; color: var(--hot-pink); font-weight: 700; border: 1px solid var(--hot-pink); padding: 0.1rem 0.5rem; border-radius: 3px; }
+
+/* ==========================================
+   🌸 FOOTER
+   ========================================== */
+.main-footer { text-align: center; padding: 3rem 1rem; background: var(--white); border-top: 1px solid var(--baby-pink); margin-top: 4rem; position: relative; z-index: 2; }
+.footer-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.footer-badges span { font-family: var(--font-headings); font-size: 0.95rem; color: var(--hot-pink); background-color: var(--baby-pink); padding: 0.4rem 1rem; border-radius: 50px; }
+.footer-certified { font-size: 0.95rem; color: var(--rose-gold); margin-bottom: 0.5rem; }
+.footer-gesture { font-family: var(--font-handwritten); font-size: 1.5rem; color: var(--hot-pink); }
+
+/* ==========================================
+   🎵 SOUNDTRACK
+   ========================================== */
+.playlist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.song-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.song-card:hover {
+  transform: translateX(10px);
+}
+
+.song-card.playing {
+  border-color: var(--hot-pink);
+  box-shadow: 0 0 20px rgba(255, 77, 141, 0.4);
+  transform: scale(1.02);
+}
+
+.song-icon {
+  font-size: 3rem;
+  background: var(--baby-pink);
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 10px rgba(255, 77, 141, 0.2);
+  min-width: 80px;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-title {
+  font-family: var(--font-headings);
+  font-size: 1.4rem;
+  color: var(--hot-pink);
+  margin-bottom: 0.5rem;
+}
+
+.song-desc {
+  font-size: 1rem;
+  color: var(--dark-text);
+  font-style: italic;
+}
+
+/* ==========================================
+   RESPONSIVENESS (MOBILE-FIRST REFINEMENTS)
+   ========================================== */
+@media (max-width: 600px) {
+  .hero-title { font-size: 3rem; }
+  .section-title { font-size: 2rem; }
+  .btn { width: 100%; }
+  .polaroid-card { max-width: 100%; }
+  .birthday-letter { padding: 2rem 1.5rem; }
+  .final-verdict-screen h2 { font-size: 2.5rem; }
+  .verdict-box p { font-size: 1.5rem; }
+}
